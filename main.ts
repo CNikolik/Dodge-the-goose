@@ -32,7 +32,7 @@ info.onCountdownEnd(function () {
 info.onLifeZero(function () {
     playerSprite.destroy()
     info.stopCountdown()
-    game.over(false)
+    game.over(false, effects.dissolve)
     game.reset()
 })
 sprites.onDestroyed(SpriteKind.Enemy, function (sprite) {
