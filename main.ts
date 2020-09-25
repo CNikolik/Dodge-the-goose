@@ -341,6 +341,11 @@ let notes = [
 ]
 music.setVolume(255)
 gameState = 0
+setInterval(function () {
+    if (Math.percentChance(75)) {
+        music.playTone(notes[randint(0, notes.length - 1)], music.beat(BeatFraction.Half))
+    }
+}, 300)
 game.onUpdate(function () {
     if (gameState == 1) {
         setFacing(playerSprite, sprites.castle.heroWalkShieldSideLeft1, sprites.castle.heroWalkSideRight2, sprites.castle.heroWalkFront1)
@@ -403,9 +408,4 @@ game.onUpdate(function () {
 })
 game.onUpdateInterval(1000, function () {
     gameSpeed += 5
-})
-game.onUpdateInterval(300, function () {
-    if (Math.percentChance(75)) {
-        music.playTone(notes[randint(0, notes.length - 1)], music.beat(BeatFraction.Half))
-    }
 })
