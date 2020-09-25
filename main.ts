@@ -331,6 +331,15 @@ scene.setBackgroundImage(img`
     9999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999
     9999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999
     `)
+let notes = [
+262,
+294,
+330,
+392,
+440,
+523
+]
+music.setVolume(255)
 gameState = 0
 game.onUpdate(function () {
     if (gameState == 1) {
@@ -394,4 +403,9 @@ game.onUpdate(function () {
 })
 game.onUpdateInterval(1000, function () {
     gameSpeed += 5
+})
+game.onUpdateInterval(300, function () {
+    if (Math.percentChance(75)) {
+        music.playTone(notes[randint(0, notes.length - 1)], music.beat(BeatFraction.Half))
+    }
 })
