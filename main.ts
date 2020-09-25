@@ -47,6 +47,7 @@ function setFacing (sprite: Sprite, left: Image, right: Image, center: Image) {
 }
 sprites.onDestroyed(SpriteKind.Enemy, function (sprite) {
     info.changeScoreBy(1)
+    setImmediate(() => music.playMelody("C3", 240));
 })
 function start () {
     info.setLife(3)
@@ -203,6 +204,7 @@ function start () {
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSprite) {
     otherSprite.destroy()
     info.changeLifeBy(-1)
+    music.playMelody("E3", 240)
 })
 let sprite_list: Sprite[] = []
 let gameSpeed = 0
@@ -332,20 +334,22 @@ scene.setBackgroundImage(img`
     9999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999
     `)
 let notes = [
-262,
-294,
-330,
-392,
-440,
-523
+"C4",
+"D4",
+"E4",
+"G4",
+"A4",
+"C5"
 ]
-music.setVolume(255)
+music.setVolume(200)
 gameState = 0
-setInterval(function () {
-    if (Math.percentChance(75)) {
-        music.playTone(notes[randint(0, notes.length - 1)], music.beat(BeatFraction.Half))
+let playNote = () => {
+    if (Math.percentChance(95)) {
+        music.playMelody(notes[randint(0, notes.length - 1)], 180)
     }
-}, 300)
+    setImmediate(playNote)
+};
+setImmediate(playNote)
 game.onUpdate(function () {
     if (gameState == 1) {
         setFacing(playerSprite, sprites.castle.heroWalkShieldSideLeft1, sprites.castle.heroWalkSideRight2, sprites.castle.heroWalkFront1)
