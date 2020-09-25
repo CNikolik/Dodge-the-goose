@@ -33,6 +33,7 @@ let enemySprite: Sprite = null
 let playerSprite: Sprite = null
 let gameSpeed = 0
 info.setLife(3)
+info.setScore(0)
 gameSpeed = 50
 scene.setBackgroundColor(7)
 scene.setBackgroundImage(img`
