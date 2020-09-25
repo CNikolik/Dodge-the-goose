@@ -19,8 +19,8 @@ info.onCountdownEnd(function () {
         `, SpriteKind.Enemy)
     enemySprite.setPosition(randint(0, 160), 0)
     enemySprite.setVelocity(0, gameSpeed * 2)
+    info.startCountdown(100 / gameSpeed)
     info.changeScoreBy(1)
-    info.startCountdown(1 * gameSpeed)
 })
 info.onLifeZero(function () {
     playerSprite.destroy()
