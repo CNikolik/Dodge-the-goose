@@ -338,7 +338,7 @@ scene.setBackgroundImage(img`
     `)
 gameState = 0
 while (true) {
-    music.playMelody("E B C5 A B G A F ", 196)
+    music.playMelody("E B C5 A B G A F ", 197)
 }
 game.onUpdate(function () {
     if (gameState == 1) {
