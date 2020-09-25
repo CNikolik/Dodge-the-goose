@@ -187,7 +187,7 @@ function start () {
         `, SpriteKind.Player)
     playerSprite.setPosition(0, 120)
     playerSprite.setFlag(SpriteFlag.StayInScreen, true)
-    controller.moveSprite(playerSprite, 200, 200)
+    controller.moveSprite(playerSprite)
     info.startCountdown(1)
     gameState = 1
 }
