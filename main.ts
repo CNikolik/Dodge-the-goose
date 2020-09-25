@@ -337,7 +337,9 @@ scene.setBackgroundImage(img`
     9999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999
     `)
 gameState = 0
-music.playMelody("B A B A B F D E ", 170)
+while (true) {
+    music.playMelody("E B C5 A B G A F ", 196)
+}
 game.onUpdate(function () {
     if (gameState == 1) {
         playerSprite.setVelocity(controller.acceleration(ControllerDimension.X) * 0.5, controller.acceleration(ControllerDimension.Y) * 0.5)
