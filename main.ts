@@ -24,6 +24,8 @@ info.onCountdownEnd(function () {
 })
 info.onLifeZero(function () {
     playerSprite.destroy()
+    music.playMelody("- - - - F D C C ", 426)
+    game.over(false, effects.melt)
 })
 sprites.onDestroyed(SpriteKind.Enemy, function (sprite) {
     info.changeScoreBy(1)
