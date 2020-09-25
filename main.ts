@@ -19,11 +19,14 @@ info.onCountdownEnd(function () {
         `, SpriteKind.Enemy)
     enemySprite.setPosition(randint(0, 160), 0)
     enemySprite.setVelocity(0, gameSpeed * 2)
-    info.startCountdown(100 / gameSpeed)
-    info.changeScoreBy(1)
+    enemySprite.setFlag(SpriteFlag.AutoDestroy, true)
+    info.startCountdown(250 / gameSpeed + 0.25)
 })
 info.onLifeZero(function () {
     playerSprite.destroy()
+})
+sprites.onDestroyed(SpriteKind.Enemy, function (sprite) {
+    info.changeScoreBy(1)
 })
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSprite) {
     otherSprite.destroy()
@@ -201,7 +204,5 @@ game.onUpdate(function () {
     playerSprite.setVelocity(controller.acceleration(ControllerDimension.X) * 0.5, controller.acceleration(ControllerDimension.Y))
 })
 game.onUpdateInterval(1000, function () {
-    if (gameSpeed < 500) {
-        gameSpeed += 1
-    }
+    gameSpeed += 5
 })
