@@ -322,12 +322,9 @@ scene.setBackgroundImage(img`
     9999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999
     `)
 gameState = 0
-while (true) {
-    music.playMelody("E B C5 A B G A F ", 197)
-}
 game.onUpdate(function () {
     if (gameState == 1) {
-        if (playerSprite.x < 0) {
+        if (playerSprite.vx < 0) {
             playerSprite.setImage(img`
                 . . . . . . . . . . . . . . . . 
                 . . . . f f f f f f . . . . . . 
@@ -346,7 +343,7 @@ game.onUpdate(function () {
                 . . f f f f f f f f f f . . . . 
                 . . . f f f . . . f f . . . . . 
                 `)
-        } else if (playerSprite.x > 0) {
+        } else if (playerSprite.vx > 0) {
             playerSprite.setImage(img`
                 . . . . . . . . . . . . . . . . 
                 . . . . . . f f f f f f . . . . 
