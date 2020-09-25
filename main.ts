@@ -26,7 +26,7 @@ info.onCountdownEnd(function () {
         enemySprite.setPosition(randint(0, 160), 0)
         enemySprite.setVelocity(0, 1)
         enemySprite.follow(playerSprite)
-        enemySprite.lifespan = 5000
+        enemySprite.lifespan = 3500
         info.startCountdown(250 / gameSpeed + 0.25)
     }
 })
