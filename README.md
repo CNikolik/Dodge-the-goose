@@ -1,7 +1,4 @@
- 
 
-
-> Open this page at [https://cnikolik.github.io/dodge-the-geese/](https://cnikolik.github.io/dodge-the-geese/)
 
 ## Use as Extension
 
